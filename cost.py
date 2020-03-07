@@ -49,7 +49,6 @@ class Cost:
                 total += 2 * self.mana[key]
         return total
 
-## TODO: Cost.cmc()
 ## TODO: Cost.__str__()
 ## TODO: account for paying life as a cost
 
