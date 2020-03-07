@@ -16,8 +16,10 @@ class Cost:
         self.energy = 0             # amount of energy counters to pay
         self.life = 0               # amount of life to pay if static
         self.verbose = []   # list of written costs or add'l costs for spells
+        self.cmc = None
         if cost_str is not None:
             self.process(cost_str)
+            self.cmc = self.get_cmc()
 
     def process(self, input):   # convert input string to Cost object
         for cost in input.split(','):
@@ -36,8 +38,16 @@ class Cost:
             else:
                 self.verbose.append(cost.strip())
 
-    def cmc(self):
-        pass
+    def get_cmc(self):
+        total = 0
+        for key in self.mana:
+            if key in MANA_CMC_0:
+                pass
+            elif key in MANA_CMC_1:
+                total += self.mana[key]
+            elif key in MANA_CMC_2:
+                total += 2 * self.mana[key]
+        return total
 
 ## TODO: Cost.cmc()
 ## TODO: Cost.__str__()
