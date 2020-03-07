@@ -51,38 +51,3 @@ class Cost:
 
 ## TODO: Cost.__str__()
 ## TODO: account for paying life as a cost
-
-def find_cmc(cost):
-    """
-    Takes a mana cost string and converts it to its converted mana cost
-    """
-    cmc = 0
-    for c in re.findall("\{.+?\}", cost):
-        temp = c[1:-1]
-        if temp.isnumeric():
-            temp = int(temp)
-        else:
-            if temp in ['X', 'Y', 'Z']:
-                temp = 0
-            elif (temp in MANA_TYPES
-            or temp in ["W/U", "W/B", "U/B", "U/R", "B/R",
-                        "B/G", "R/G", "R/W", "G/W", "G/U",
-                        "W/P", "U/P", "B/P", "R/P", "G/P"]):
-                temp = 1
-            elif temp in ["2/W", "2/U", "2/B", "2/R", "2/G"]:
-                temp = 2
-        cmc += temp
-    return cmc
-
-def format_cost(cost):
-    """
-    Takes a string of mana symbols and formats the cost properly
-    i.e. {W}{1}{U}{2}{W} > {3}{W}{W}{U}
-    """
-    mana = {m:0 for m in MANA_SYMBOLS}
-    for m in mana:
-        mana[m] = cost.count(m)
-    mana['generic'] = 0
-    for g in re.findall("\{\d+\}", cost):
-        mana['generic'] += int(g[1:-1])
-    return mana

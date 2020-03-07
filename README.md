@@ -12,5 +12,5 @@ A manager for several Magic: the Gathering concepts
 - [x] Cost class
   - [x] process cost string into object data
   - [ ] str() handling
-  - [ ] .cmc()
+  - [x] .cmc()
   - [ ] print mana cost in readable format separate from str()
