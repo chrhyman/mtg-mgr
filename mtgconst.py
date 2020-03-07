@@ -58,9 +58,14 @@ MANA_SYMBOLS = [WHITE, BLUE, BLACK, RED, GREEN,
     COLORLESS, SNOW, PHYREXIAN, XMANA, YMANA, ZMANA,
     HY_WU, HY_WB, HY_UB, HY_UR, HY_BR, HY_BG, HY_RG, HY_RW, HY_GW, HY_GU,
     MHY_W, MHY_U, MHY_B, MHY_R, MHY_G, PH_W, PH_U, PH_B, PH_R, PH_G]
+MANA_CMC_0 = [XMANA, YMANA, ZMANA]
+MANA_CMC_1 = [WHITE, BLUE, BLACK, RED, GREEN, COLORLESS, SNOW, PHYREXIAN,
+    HY_WU, HY_WB, HY_UB, HY_UR, HY_BR, HY_BG, HY_RG, HY_RW, HY_GW, HY_GU,
+    PH_W, PH_U, PH_B, PH_R, PH_G]
+MANA_CMC_2 = [MHY_W, MHY_U, MHY_B, MHY_R, MHY_G]
 
 # OTHER SYMBOLS
 TAP = "{T}"
 UNTAP = "{Q}"
 ENERGY = "{E}"
-def rnum(n): return "{rN" + str(int(n)) + "}"   # saga chapter symbol
+def saga_ch(n): return "{rN" + str(int(n)) + "}"   # saga chapter symbol
