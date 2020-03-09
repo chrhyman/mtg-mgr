@@ -32,7 +32,7 @@ class Color:
         self.colors = [self.white, self.blue, self.black, self.red, self.green]
 
     def get_guild(self):
-        if not exactly2(self.colors):
+        if self.colors.count(True) != 2:
             raise RuleError("No guild definition exists for this Color object")
         if self.white:
             if self.blue:
