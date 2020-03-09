@@ -1,5 +1,5 @@
 import re
-from mtgconst import *
+from const import *
 
 class Cost:
     """

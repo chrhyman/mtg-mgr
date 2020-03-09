@@ -27,6 +27,12 @@ class Color:
         else:
             self.colorpair = False
             self.guild = None
+        # if count is 3 handle shards and wedges
+        # if count is 4 handle 4-color
+        if all(self.colors):
+            self.fivecolor = True
+        else:
+            self.fivecolor = False
 
     def assign_colors(self):
         self.colors = [self.white, self.blue, self.black, self.red, self.green]
@@ -58,12 +64,12 @@ class Color:
         elif self.red:
             if self.green:
                 return GRUUL
-        raise RuleError("No guild assigned.")
+        raise RuleError("No guild returned. Dumping object data: " + str(self.__dict__))
 
     def update(self, w=None, u=None, b=None, r=None, g=None):
         w2 = w if w is not None else self.white
-        u2 = w if u is not None else self.blue
-        b2 = w if b is not None else self.black
-        r2 = w if r is not None else self.red
-        g2 = w if g is not None else self.green
+        u2 = u if u is not None else self.blue
+        b2 = b if b is not None else self.black
+        r2 = r if r is not None else self.red
+        g2 = g if g is not None else self.green
         self.__init__(w2, u2, b2, r2, g2)

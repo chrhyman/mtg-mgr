@@ -1,3 +1,4 @@
+import config   # as a list of constants to be used elsewhere
 # ---
 # MTG Constants
 # ---
