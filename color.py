@@ -60,10 +60,10 @@ class Color:
                 return GRUUL
         raise RuleError("No guild assigned.")
 
-    def update(self,
-               w=self.white,
-               u=self.blue,
-               b=self.black,
-               r=self.red,
-               g=self.green):
-        self.__init__(w, u, b, r, g)
+    def update(self, w=None, u=None, b=None, r=None, g=None):
+        w2 = True if w else self.white
+        u2 = True if u else self.blue
+        b2 = True if b else self.black
+        r2 = True if r else self.red
+        g2 = True if g else self.green
+        self.__init__(w2, u2, b2, r2, g2)
