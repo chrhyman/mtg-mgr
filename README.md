@@ -22,3 +22,8 @@ A manager for several Magic: the Gathering concepts
   - [ ] Handles 3-color combos (wedges and shards)
   - [ ] Handles 4-color combos (with naming convention options)
   - [x] Attribute for when all 5 colors are present, `fivecolor`
+- [ ] Some amount of implementation of Planechase
+  - [ ] Having an inventory of card texts and having a plane card object that can be used
+  - [ ] combined vs individual decks
+  - [ ] ability to interact with digital cards like the rules would have you do (like rearranging and putting back on top and so on)
+  - [ ] some sort of representation maybe image uri or just textual
