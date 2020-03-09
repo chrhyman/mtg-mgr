@@ -8,6 +8,7 @@ class Color:
     RED = "red"
     GREEN = "green"
     COLORS = [WHITE, BLUE, BLACK, RED, GREEN]
+
     def __init__(self, w=False, u=False, b=False, r=False, g=False):
         self.white = w
         self.blue = u
@@ -67,12 +68,17 @@ class Guild:
     SIMIC = "Simic"
     GUILDS = [AZORIUS, BOROS, DIMIR, GOLGARI, GRUUL,
         IZZET, ORZHOV, RAKDOS, SELESNYA, SIMIC]
+
     def __init__(self, color_obj):
         if color_obj.colors.count(True) != 2:
-            raise RuleError("No guild definition exists for this Color object: " + repr(color_obj) + str(color_obj.__dict__))
+            err = "No guild definition exists for this Color object: "
+            err += str(color_obj.__dict__)
+            raise RuleError(err)
         self.color = color_obj
+        self.guild = self.get_guild()
 
 '''
+    def get_guild(self):
         if self.white:
             if self.blue:
                 return AZORIUS
