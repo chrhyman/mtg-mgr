@@ -70,7 +70,7 @@ ENERGY = "{E}"
 def saga_ch(n): return "{rN" + str(int(n)) + "}"   # saga chapter symbol
 
 # GUILDS
-AZORIOUS = "Azorious"
+AZORIUS = "Azorius"
 BOROS = "Boros"
 DIMIR = "Dimir"
 GOLGARI = "Golgari"
@@ -80,5 +80,5 @@ ORZHOV = "Orzhov"
 RAKDOS = "Rakdos"
 SELESNYA = "Selesnya"
 SIMIC = "Simic"
-GUILDS = [AZORIOUS, BOROS, DIMIR, GOLGARI, GRUUL,
+GUILDS = [AZORIUS, BOROS, DIMIR, GOLGARI, GRUUL,
     IZZET, ORZHOV, RAKDOS, SELESNYA, SIMIC]

@@ -36,7 +36,7 @@ class Color:
             raise RuleError("No guild definition exists for this Color object")
         if self.white:
             if self.blue:
-                return AZORIOUS
+                return AZORIUS
             elif self.black:
                 return ORZHOV
             elif self.red:
@@ -61,9 +61,9 @@ class Color:
         raise RuleError("No guild assigned.")
 
     def update(self, w=None, u=None, b=None, r=None, g=None):
-        w2 = True if w else self.white
-        u2 = True if u else self.blue
-        b2 = True if b else self.black
-        r2 = True if r else self.red
-        g2 = True if g else self.green
+        w2 = w if w is not None else self.white
+        u2 = w if u is not None else self.blue
+        b2 = w if b is not None else self.black
+        r2 = w if r is not None else self.red
+        g2 = w if g is not None else self.green
         self.__init__(w2, u2, b2, r2, g2)
