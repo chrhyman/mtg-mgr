@@ -1,7 +1,7 @@
 # MTG Constants
 
 COLORS = ['W', 'U', 'B', 'R', 'G'] # colorless is not a color
-MANA_TYPES = ['W', 'U', 'B', 'R', 'G', 'C', 'S', 'P']
+MANA_TYPES = ['W', 'U', 'B', 'R', 'G', 'C', 'S', 'P'] # colorless,snow,phyrexian
 
 ARTIFACT = "Artifact"
 CONSPIRACY = "Conspiracy"

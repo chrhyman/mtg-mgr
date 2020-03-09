@@ -1,34 +1,22 @@
+from util import only1
+
 class Color:
-    pass
+    def __init__(self, w=False, u=False, b=False, r=False, g=False):
+        self.white = w
+        self.blue = u
+        self.black = b
+        self.red = r
+        self.green = g
+        self.assign_colors()
+        if not any(self.colors):
+            self.colorless = True
+        else:
+            self.colorless = False
+        if only1(self.colors):
+            self.monocolored = True
+        else:
+            self.monocolored = False
+        if
 
-class White(Color):
-    def __str__(self):
-        return "white"
-
-class Blue(Color):
-    def __str__(self):
-        return "blue"
-
-class Black(Color):
-    def __str__(self):
-        return "black"
-
-class Red(Color):
-    def __str__(self):
-        return "red"
-
-class Green(Color):
-    def __str__(self):
-        return "green"
-
-class Guild:
-    def __init__(self, c1, c2):
-        if type(c1) is type(c2):
-            raise ValueError("Colors cannot match.")
-        self.c1 = c1
-        self.c2 = c2
-        self.guild = self.get_guild()
-
-    def get_guild(self):
-        if isinstance(self.c1, White):
-            if isinstance(self.c2, )
+    def assign_colors(self):
+        self.colors = [self.white, self.blue, self.black, self.red, self.green]
