@@ -28,6 +28,7 @@ class Color:
             self.colorpair = False
             self.guild = None
         # if count is 3 handle shards and wedges
+        # together or separate?
         # if count is 4 handle 4-color
         if all(self.colors):
             self.fivecolor = True
