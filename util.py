@@ -1,23 +1,6 @@
-def only1(lst):
-    found_true = False
-    for b in lst:
-        if b:
-            if found_true:
-                return False
-            else:
-                found_true = True
-    return found_true
-
-def morethan1(lst):
-    x = 0
-    for b in lst:
-        if b:
-            x += 1
-    return x > 1
-
-def exactly2(lst):
-    x = 0
-    for b in lst:
-        if b:
-            x += 1
-    return x == 2
+class RuleError(Exception):
+    """Exception raised for actions or calls to methods that violate the game
+    rules of Magic: the Gathering or that reference an impossible task within
+    the framework of the game rules and its definitions.
+    """
+    pass

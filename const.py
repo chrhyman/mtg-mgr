@@ -1,7 +1,6 @@
+# ---
 # MTG Constants
-
-COLORS = ['W', 'U', 'B', 'R', 'G'] # colorless is not a color
-MANA_TYPES = ['W', 'U', 'B', 'R', 'G', 'C', 'S', 'P'] # colorless,snow,phyrexian
+# ---
 
 ARTIFACT = "Artifact"
 CONSPIRACY = "Conspiracy"
@@ -69,3 +68,17 @@ TAP = "{T}"
 UNTAP = "{Q}"
 ENERGY = "{E}"
 def saga_ch(n): return "{rN" + str(int(n)) + "}"   # saga chapter symbol
+
+# GUILDS
+AZORIOUS = "Azorious"
+BOROS = "Boros"
+DIMIR = "Dimir"
+GOLGARI = "Golgari"
+GRUUL = "Gruul"
+IZZET = "Izzet"
+ORZHOV = "Orzhov"
+RAKDOS = "Rakdos"
+SELESNYA = "Selesnya"
+SIMIC = "Simic"
+GUILDS = [AZORIOUS, BOROS, DIMIR, GOLGARI, GRUUL,
+    IZZET, ORZHOV, RAKDOS, SELESNYA, SIMIC]
