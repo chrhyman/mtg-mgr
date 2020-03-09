@@ -9,8 +9,7 @@ class Cost:
     Should be able to print the object into a readable comma-delimited string
     """
     def __init__(self, cost_str=None):
-        self.mana = {m:0 for m in MANA_SYMBOLS} # a dict of quantities of mana
-        self.mana['generic'] = 0                # symbols in the cost
+        self.mana = BASE_MANA_DICT  # a dict of quantities of mana in the cost
         self.tap = False            # true if cost requires its permanent tap
         self.untap = False          # true if cost requires its permanent untap
         self.energy = 0             # amount of energy counters to pay

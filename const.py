@@ -20,14 +20,14 @@ CARD_TYPES = [ARTIFACT, CONSPIRACY, CREATURE, ENCHANTMENT, INSTANT, LAND, PHENOM
 
 # MANA SYMBOLS
 def generic(n): return "{" + str(int(n)) + "}"
-WHITE = "{W}"
-BLUE = "{U}"
-BLACK = "{B}"
-RED = "{R}"
-GREEN = "{G}"
-COLORLESS = "{C}"
-SNOW = "{S}"
-PHYREXIAN = "{P}"
+M_W = "{W}"
+M_U = "{U}"
+M_B = "{B}"
+M_R = "{R}"
+M_G = "{G}"
+M_COLORLESS = "{C}"
+M_SNOW = "{S}"
+M_PHYREXIAN = "{P}"
 XMANA = "{X}"
 YMANA = "{Y}"
 ZMANA = "{Z}"
@@ -54,8 +54,8 @@ PH_U = "{U/P}"
 PH_B = "{B/P}"
 PH_R = "{R/P}"
 PH_G = "{G/P}"
-MANA_SYMBOLS = [WHITE, BLUE, BLACK, RED, GREEN,
-    COLORLESS, SNOW, PHYREXIAN, XMANA, YMANA, ZMANA,
+MANA_SYMBOLS = [M_W, M_U, M_B, M_R, M_G,
+    M_COLORLESS, M_SNOW, M_PHYREXIAN, XMANA, YMANA, ZMANA,
     HY_WU, HY_WB, HY_UB, HY_UR, HY_BR, HY_BG, HY_RG, HY_RW, HY_GW, HY_GU,
     MHY_W, MHY_U, MHY_B, MHY_R, MHY_G, PH_W, PH_U, PH_B, PH_R, PH_G]
 MANA_CMC_0 = [XMANA, YMANA, ZMANA]
@@ -64,22 +64,11 @@ MANA_CMC_1 = [WHITE, BLUE, BLACK, RED, GREEN, COLORLESS, SNOW, PHYREXIAN,
     PH_W, PH_U, PH_B, PH_R, PH_G]
 MANA_CMC_2 = [MHY_W, MHY_U, MHY_B, MHY_R, MHY_G]
 
+BASE_MANA_DICT = {m:0 for m in MANA_SYMBOLS}
+BASE_MANA_DICT["generic"] = 0
+
 # OTHER SYMBOLS
 TAP = "{T}"
 UNTAP = "{Q}"
 ENERGY = "{E}"
 def saga_ch(n): return "{rN" + str(int(n)) + "}"   # saga chapter symbol
-
-# GUILDS
-AZORIUS = "Azorius"
-BOROS = "Boros"
-DIMIR = "Dimir"
-GOLGARI = "Golgari"
-GRUUL = "Gruul"
-IZZET = "Izzet"
-ORZHOV = "Orzhov"
-RAKDOS = "Rakdos"
-SELESNYA = "Selesnya"
-SIMIC = "Simic"
-GUILDS = [AZORIUS, BOROS, DIMIR, GOLGARI, GRUUL,
-    IZZET, ORZHOV, RAKDOS, SELESNYA, SIMIC]
