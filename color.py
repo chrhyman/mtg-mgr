@@ -21,8 +21,10 @@ class Color:
             self.colorless = False
         if self.colors.count(True) == 1:
             self.monocolored = True
+            self.monocolor = Color.COLORS[self.colors.index(True)]
         else:
             self.monocolored = False
+            self.monocolor = None
         if self.colors.count(True) > 1:
             self.multicolored = True
         else:
