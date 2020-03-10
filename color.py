@@ -20,26 +20,30 @@ class Color:
             self.colorless = True
         else:
             self.colorless = False
-        if self.colors.count(True) == 1:
+        color_count = self.colors.count(True)
+        if color_count == 1:
             self.monocolored = True
             self.monocolor = Color.COLORS[self.colors.index(True)]
         else:
             self.monocolored = False
             self.monocolor = None
-        if self.colors.count(True) > 1:
+        if color_count > 1:
             self.multicolored = True
         else:
             self.multicolored = False
-        if self.colors.count(True) == 2:
+        if color_count == 2:
             self.colorpair = True
-            self.guild = Guild(self)
+            self.guild = str(Guild(self))
         else:
             self.colorpair = False
             self.guild = None
-        # if count is 3 handle shards and wedges
+        if color_count == 3:
+            self.tricolored = True
+        else:
+            self.tricolored = False
         # together or separate?
         # if count is 4 handle 4-color
-        if all(self.colors):
+        if color_count == 5:
             self.fivecolor = True
         else:
             self.fivecolor = False
