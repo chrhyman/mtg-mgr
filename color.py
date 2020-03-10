@@ -30,11 +30,12 @@ class Color:
             self.monocolor = None
         if color_count > 1:
             self.multicolored = True
+            self.multi = Multicolor(self)
         else:
             self.multicolored = False
         if color_count == 2:
             self.colorpair = True
-            self.guild = str(Multicolor(self))
+            self.guild = "self.multi.guild"
         else:
             self.colorpair = False
             self.guild = None
@@ -63,15 +64,15 @@ class Color:
         self.__init__(w2, u2, b2, r2, g2)
 
 class Multicolor:
-    def __init__(self, color_obj, name=None):
-        self.colors = color_obj
-        color_count = self.colors.colors.count(True)
+    def __init__(self, color_obj):
+        self.color = color_obj
+        color_count = self.color.colors.count(True)
         if color_count <= 1:
             raise RuleError(
-                "arg:color_obj isn;t a valid Multicolor object. Dumping data: "
-                + str(self.colors.__dict__))
-        self.name = name    # guild name, shard name, etc.
-        self.type = "TBI" # guild, shard, wedge, four-color, fivecolor
+                "arg:color_obj isn't a valid Multicolor object. Dumping data: "
+                + str(self.color.__dict__))
+        self.name = None    # guild name, shard name, etc.
+        self.type = None    # guild, shard, wedge, four-color, fivecolor
 
     def __str__(self):
         if self.name:
