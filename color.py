@@ -33,7 +33,7 @@ class Color:
             self.multicolored = False
         if color_count == 2:
             self.colorpair = True
-            self.guild = str(Guild(self))
+            self.guild = str(Multicolor(self))
         else:
             self.colorpair = False
             self.guild = None
@@ -65,10 +65,17 @@ class Color:
         self.__init__(w2, u2, b2, r2, g2)
 
 class Multicolor:
-    def __init__(self, color_obj):
+    def __init__(self, color_obj, name=None):
         self.color = color_obj
-        pass
+        self.name = name    # guild name, shard name, etc.
+        self.type = "TBI" # guild, shard, wedge, four-color, fivecolor
 
+    def __str__(self):
+        if self.name:
+            return self.name
+        return "None"
+
+'''
 class Guild:
     def __init__(self, color_obj):
         if color_obj.colors.count(True) != 2:
@@ -76,10 +83,7 @@ class Guild:
             err += str(color_obj.__dict__)
             raise RuleError(err)
         self.color = color_obj
-        self.guild = self.get_guild()
-
-    def __str__(self):
-        return self.guild
+        self.name = self.get_guild()
 
     def get_guild(self):
         if self.color.white:
@@ -106,3 +110,4 @@ class Guild:
         elif self.color.red:
             if self.color.green:
                 return GRUUL
+'''
