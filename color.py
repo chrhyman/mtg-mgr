@@ -39,14 +39,19 @@ class Color:
             self.guild = None
         if color_count == 3:
             self.tricolored = True
+            self.triname = "TBI" # to be implemented
         else:
             self.tricolored = False
+            self.triname = None
         # together or separate?
         # if count is 4 handle 4-color
         if color_count == 5:
             self.fivecolor = True
         else:
             self.fivecolor = False
+
+    def __str__(self):
+        return str(self.__dict__)
 
     def assign_colors(self):
         self.colors = [self.white, self.blue, self.black, self.red, self.green]
@@ -60,19 +65,6 @@ class Color:
         self.__init__(w2, u2, b2, r2, g2)
 
 class Guild:
-    AZORIUS = "Azorius"
-    BOROS = "Boros"
-    DIMIR = "Dimir"
-    GOLGARI = "Golgari"
-    GRUUL = "Gruul"
-    IZZET = "Izzet"
-    ORZHOV = "Orzhov"
-    RAKDOS = "Rakdos"
-    SELESNYA = "Selesnya"
-    SIMIC = "Simic"
-    GUILDS = [AZORIUS, BOROS, DIMIR, GOLGARI, GRUUL,
-        IZZET, ORZHOV, RAKDOS, SELESNYA, SIMIC]
-
     def __init__(self, color_obj):
         if color_obj.colors.count(True) != 2:
             err = "No guild definition exists for this Color object: "
@@ -87,25 +79,25 @@ class Guild:
     def get_guild(self):
         if self.color.white:
             if self.color.blue:
-                return Guild.AZORIUS
+                return AZORIUS
             elif self.color.black:
-                return Guild.ORZHOV
+                return ORZHOV
             elif self.color.red:
-                return Guild.BOROS
+                return BOROS
             elif self.color.green:
-                return Guild.SELESNYA
+                return SELESNYA
         elif self.color.blue:
             if self.color.black:
-                return Guild.DIMIR
+                return DIMIR
             elif self.color.red:
-                return Guild.IZZET
+                return IZZET
             elif self.color.green:
-                return Guild.SIMIC
+                return SIMIC
         elif self.color.black:
             if self.color.red:
-                return Guild.RAKDOS
+                return RAKDOS
             elif self.color.green:
-                return Guild.GOLGARI
+                return GOLGARI
         elif self.color.red:
             if self.color.green:
-                return Guild.GRUUL
+                return GRUUL
