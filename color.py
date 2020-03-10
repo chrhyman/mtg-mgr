@@ -64,6 +64,11 @@ class Color:
         g2 = g if g is not None else self.green
         self.__init__(w2, u2, b2, r2, g2)
 
+class Multicolor:
+    def __init__(self, color_obj):
+        self.color = color_obj
+        pass
+
 class Guild:
     def __init__(self, color_obj):
         if color_obj.colors.count(True) != 2:
