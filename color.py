@@ -77,30 +77,31 @@ class Guild:
         self.color = color_obj
         self.guild = self.get_guild()
 
-'''
+    def __str__(self):
+        return self.guild
+
     def get_guild(self):
-        if self.white:
-            if self.blue:
-                return AZORIUS
-            elif self.black:
-                return ORZHOV
-            elif self.red:
-                return BOROS
-            elif self.green:
-                return SELESNYA
-        elif self.blue:
-            if self.black:
-                return DIMIR
-            elif self.red:
-                return IZZET
-            elif self.green:
-                return SIMIC
-        elif self.black:
-            if self.red:
-                return RAKDOS
-            elif self.green:
-                return GOLGARI
-        elif self.red:
-            if self.green:
-                return GRUUL
-'''
+        if self.color.white:
+            if self.color.blue:
+                return Guild.AZORIUS
+            elif self.color.black:
+                return Guild.ORZHOV
+            elif self.color.red:
+                return Guild.BOROS
+            elif self.color.green:
+                return Guild.SELESNYA
+        elif self.color.blue:
+            if self.color.black:
+                return Guild.DIMIR
+            elif self.color.red:
+                return Guild.IZZET
+            elif self.color.green:
+                return Guild.SIMIC
+        elif self.color.black:
+            if self.color.red:
+                return Guild.RAKDOS
+            elif self.color.green:
+                return Guild.GOLGARI
+        elif self.color.red:
+            if self.color.green:
+                return Guild.GRUUL
