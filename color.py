@@ -15,12 +15,13 @@ class Color:
         self.black = b
         self.red = r
         self.green = g
-        self.assign_colors()
-        if not any(self.colors):
+        self.colors = [w, u, b, r, g]
+        color_count = self.colors.count(True)
+
+        if color_count == 0:
             self.colorless = True
         else:
             self.colorless = False
-        color_count = self.colors.count(True)
         if color_count == 1:
             self.monocolored = True
             self.monocolor = Color.COLORS[self.colors.index(True)]
@@ -53,9 +54,6 @@ class Color:
     def __str__(self):
         return str(self.__dict__)
 
-    def assign_colors(self):
-        self.colors = [self.white, self.blue, self.black, self.red, self.green]
-
     def update(self, w=None, u=None, b=None, r=None, g=None):
         w2 = w if w is not None else self.white
         u2 = u if u is not None else self.blue
@@ -66,7 +64,12 @@ class Color:
 
 class Multicolor:
     def __init__(self, color_obj, name=None):
-        self.color = color_obj
+        self.colors = color_obj
+        color_count = self.colors.colors.count(True)
+        if color_count <= 1:
+            raise RuleError(
+                "arg:color_obj isn;t a valid Multicolor object. Dumping data: "
+                + str(self.colors.__dict__))
         self.name = name    # guild name, shard name, etc.
         self.type = "TBI" # guild, shard, wedge, four-color, fivecolor
 
