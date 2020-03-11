@@ -33,6 +33,8 @@ class Color:
             self.multi = Multicolor(self)
         else:
             self.multicolored = False
+            self.multi = None
+
         if color_count == 2:
             self.colorpair = True
             self.guild = self.multi.name
@@ -41,12 +43,18 @@ class Color:
             self.guild = None
         if color_count == 3:
             self.tricolored = True
-            self.triname = "TBI" # to be implemented
+            self.triname = self.multi.name
+            self.tritype = self.multi.type
         else:
             self.tricolored = False
             self.triname = None
-        # together or separate?
-        # if count is 4 handle 4-color
+        if color_count == 4:
+            self.fourcolor = True
+            self.fourname = self.multi.name
+            self.fourtype = self.multi.type
+        else:
+            self.fourcolor = False
+            self.fourname = None
         if color_count == 5:
             self.fivecolor = True
         else:
@@ -77,8 +85,8 @@ class Multicolor:
                 "arg:color_obj isn't a valid Multicolor object. Dumping data: "
                 + str(self.color.__dict__))
         elif color_count == 2:
-            self.type = Multicolor.GUILD
             self.name = self.get_guild()
+            self.type = Multicolor.GUILD
 
     def __str__(self):
         if self.name:
