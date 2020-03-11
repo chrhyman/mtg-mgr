@@ -35,7 +35,7 @@ class Color:
             self.multicolored = False
         if color_count == 2:
             self.colorpair = True
-            self.guild = "self.multi.guild"
+            self.guild = self.multi.name
         else:
             self.colorpair = False
             self.guild = None
@@ -64,6 +64,11 @@ class Color:
         self.__init__(w2, u2, b2, r2, g2)
 
 class Multicolor:
+    GUILD = "guild"
+    SHARD = "shard"
+    WEDGE = "wedge"
+    FOURC = "four-color"
+    FIVEC = "five-color"
     def __init__(self, color_obj):
         self.color = color_obj
         color_count = self.color.colors.count(True)
@@ -71,23 +76,14 @@ class Multicolor:
             raise RuleError(
                 "arg:color_obj isn't a valid Multicolor object. Dumping data: "
                 + str(self.color.__dict__))
-        self.name = None    # guild name, shard name, etc.
-        self.type = None    # guild, shard, wedge, four-color, fivecolor
+        elif color_count == 2:
+            self.type = Multicolor.GUILD
+            self.name = self.get_guild()
 
     def __str__(self):
         if self.name:
             return self.name
         return "None"
-
-'''
-class Guild:
-    def __init__(self, color_obj):
-        if color_obj.colors.count(True) != 2:
-            err = "No guild definition exists for this Color object: "
-            err += str(color_obj.__dict__)
-            raise RuleError(err)
-        self.color = color_obj
-        self.name = self.get_guild()
 
     def get_guild(self):
         if self.color.white:
@@ -114,4 +110,3 @@ class Guild:
         elif self.color.red:
             if self.color.green:
                 return GRUUL
-'''
