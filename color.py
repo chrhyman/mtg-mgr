@@ -87,6 +87,19 @@ class Multicolor:
         elif color_count == 2:
             self.name = self.get_guild()
             self.type = Multicolor.GUILD
+        elif color_count == 3:
+            self.name = self.get_tri()
+            if self.name in SHARDS:
+                self.type = Multicolor.SHARD
+            elif self.name in WEDGES:
+                self.type = Multicolor.WEDGE
+        elif color_count == 4:
+            self.type = Multicolor.FOURC
+        elif color_count == 5:
+            self.name = Multicolor.FIVEC
+            self.type = Multicolor.FIVEC
+        else:
+            raise RuleError()
 
     def __str__(self):
         if self.name:
@@ -94,27 +107,61 @@ class Multicolor:
         return "None"
 
     def get_guild(self):
-        if self.color.white:
-            if self.color.blue:
+        c = self.color
+        if c.white:
+            if c.blue:
                 return AZORIUS
-            elif self.color.black:
+            elif c.black:
                 return ORZHOV
-            elif self.color.red:
+            elif c.red:
                 return BOROS
-            elif self.color.green:
+            elif c.green:
                 return SELESNYA
-        elif self.color.blue:
-            if self.color.black:
+        elif c.blue:
+            if c.black:
                 return DIMIR
-            elif self.color.red:
+            elif c.red:
                 return IZZET
-            elif self.color.green:
+            elif c.green:
                 return SIMIC
-        elif self.color.black:
-            if self.color.red:
+        elif c.black:
+            if c.red:
                 return RAKDOS
-            elif self.color.green:
+            elif c.green:
                 return GOLGARI
-        elif self.color.red:
-            if self.color.green:
+        elif c.red:
+            if c.green:
                 return GRUUL
+
+    def get_tri(self):
+        c = self.color
+        if c.white:
+            if c.blue:
+                if c.black:
+                    return ESPER
+                elif c.red:
+                    return JESKAI
+                elif c.green:
+                    return BANT
+            elif c.black:
+                if c.red:
+                    return MARDU
+                elif c.green:
+                    return ABZAN
+            elif c.red:
+                if c.green:
+                    return NAYA
+        elif c.blue:
+            if c.black:
+                if c.red:
+                    return GRIXIS
+                elif c.green:
+                    return SULTAI
+            elif c.red:
+                if c.green:
+                    return TEMUR
+        elif c.black:
+            if c.red:
+                if c.green:
+                    return JUND
+        raise RuleError("Invalid. self.color: " + str(self.color.__dict__))
