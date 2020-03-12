@@ -132,6 +132,7 @@ class Multicolor:
         elif c.red:
             if c.green:
                 return GRUUL
+        raise RuleError("Invalid. self.color: " + str(c.__dict__))
 
     def get_tri(self):
         c = self.color
@@ -164,4 +165,4 @@ class Multicolor:
             if c.red:
                 if c.green:
                     return JUND
-        raise RuleError("Invalid. self.color: " + str(self.color.__dict__))
+        raise RuleError("Invalid. self.color: " + str(c.__dict__))
