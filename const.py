@@ -46,6 +46,38 @@ TEMUR = "Temur"
 WEDGES = [ABZAN, JESKAI, SULTAI, MARDU, TEMUR]
 TRICOLORS = SHARDS + WEDGES
 
+FOURC_STRUCT = {0: "WUBRG",
+                1: "c16-theme",
+                2: "neph-short",
+                3: "neph-long",
+                "not": "the color it isn't"}
+WUBR = {0: "WUBR",
+        1: "artifice",
+        2: "Yore",
+        3: "Yore-Tiller",
+        "not": "green"}
+UBRG = {0: "UBRG",
+        1: "chaos",
+        2: "Glint",
+        3: "Glint-Eye",
+        "not": "white"}
+BRGW = {0: "BRGW",
+        1: "aggression",
+        2: "Dune",
+        3: "Dune-Brood",
+        "not": "blue"}
+RGWU = {0: "RGWU",
+        1: "altruism",
+        2: "Ink",
+        3: "Ink-Treader",
+        "not": "black"}
+GWUB = {0: "GWUB",
+        1: "growth",
+        2: "Witch",
+        3: "Witch-Maw",
+        "not": "red"}
+FOURC_NAMES = [WUBR, UBRG, BRGW, RGWU, GWUB]
+
 # MANA SYMBOLS
 def generic(n): return "{" + str(int(n)) + "}"
 M_W = "{W}"

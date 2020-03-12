@@ -94,6 +94,7 @@ class Multicolor:
             elif self.name in WEDGES:
                 self.type = Multicolor.WEDGE
         elif color_count == 4:
+            self.name = self.get_quad()
             self.type = Multicolor.FOURC
         elif color_count == 5:
             self.name = Multicolor.FIVEC
@@ -166,3 +167,6 @@ class Multicolor:
                 if c.green:
                     return JUND
         raise RuleError("Invalid. self.color: " + str(c.__dict__))
+
+    def get_quad(self):
+        c = self.color
