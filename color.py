@@ -1,4 +1,5 @@
 from const import *
+from config import *
 from util import RuleError
 
 class Color:
