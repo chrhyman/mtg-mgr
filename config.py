@@ -4,10 +4,10 @@
 # -----------------
 
 # Pick your naming scheme from these options
-# 0: "WUBRG", i.e. WUBR or BRGW or whatever
-# 1: "c16-theme", i.e. Growth or Aggression
-# 2: "neph-short", i.e. Glint
-# 3: "neph-long", i.e. Glint-Eye
+# 0: "WUBRG", e.g. BRGW
+# 1: "c16-theme", e.g. aggression
+# 2: "neph-short", e.g. Dune
+# 3: "neph-long", e.g. Dune-Brood
 # "not": "the color it isn't" i.e. not-blue or blueless
 FOURC_NAMING_CONVENTION = 0
 if FOURC_NAMING_CONVENTION == "not":

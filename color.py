@@ -170,3 +170,31 @@ class Multicolor:
 
     def get_quad(self):
         c = self.color
+        q = None
+        if c.white:
+            if c.blue:
+                if c.black:
+                    if c.red:
+                        q = WUBR
+                    elif c.green:
+                        q = GWUB
+                elif c.red:
+                    if c.green:
+                        q = RGWU
+            elif c.black:
+                if c.red:
+                    if c.green:
+                        q = BRGW
+        elif c.blue:
+            if c.black:
+                if c.red:
+                    if c.green:
+                        q = UBRG
+        if q is None:
+            raise RuleError("Invalid. self.color: " + str(c.__dict__))
+        i = FOURC_NAMING_CONVENTION
+        if type(i) is str:
+            if FOURC_USE_PREFIX:
+                return FOURC_NO_X_PREF + q[i]
+            return q[i] + FOURC_X_LESS_SUFF
+        return q[i]

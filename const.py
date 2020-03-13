@@ -46,11 +46,11 @@ TEMUR = "Temur"
 WEDGES = [ABZAN, JESKAI, SULTAI, MARDU, TEMUR]
 TRICOLORS = SHARDS + WEDGES
 
-FOURC_STRUCT = {0: "WUBRG",
-                1: "c16-theme",
-                2: "neph-short",
-                3: "neph-long",
-                "not": "the color it isn't"}
+# FOURC_STRUCT = {0: "WUBRG",
+#                 1: "c16-theme",
+#                 2: "neph-short",
+#                 3: "neph-long",
+#                 "not": "the color it isn't"}
 WUBR = {0: "WUBR",
         1: "artifice",
         2: "Yore",
