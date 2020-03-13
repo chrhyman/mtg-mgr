@@ -9,6 +9,7 @@ class Color:
     RED = "red"
     GREEN = "green"
     COLORS = [WHITE, BLUE, BLACK, RED, GREEN]
+    COLORLESS = "colorless" # descriptive purposes only. colorless isn't a color
 
     def __init__(self, w=False, u=False, b=False, r=False, g=False):
         self.white = w
@@ -17,21 +18,27 @@ class Color:
         self.red = r
         self.green = g
         self.colors = [w, u, b, r, g]
+        self.name = None
         color_count = self.colors.count(True)
 
         if color_count == 0:
             self.colorless = True
+            self.name = Color.COLORLESS
         else:
             self.colorless = False
+
         if color_count == 1:
             self.monocolored = True
             self.monocolor = Color.COLORS[self.colors.index(True)]
+            self.name = self.monocolor
         else:
             self.monocolored = False
             self.monocolor = None
+
         if color_count > 1:
             self.multicolored = True
             self.multi = Multicolor(self)
+            self.name = str(self.multi)
         else:
             self.multicolored = False
             self.multi = None
@@ -62,7 +69,7 @@ class Color:
             self.fivecolor = False
 
     def __str__(self):
-        return str(self.__dict__)
+        return self.name
 
     def update(self, w=None, u=None, b=None, r=None, g=None):
         w2 = w if w is not None else self.white
