@@ -2,7 +2,6 @@
 
 # FOUR COLOR NAMING
 # -----------------
-
 # Pick your naming scheme from these options
 # 0: "WUBRG", e.g. BRGW
 # 1: "c16-theme", e.g. aggression
